@@ -4,7 +4,7 @@ const ChatRoom = require('./models/ChatRoom');
 const Message = require('./models/Message');
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://ohenebasayram:KinG123%40%26@cluster0.m3p1erd.mongodb.net/', {
+mongoose.connect('mongodb+srv://Glitch:PETnvMU8X0414oW2@glitch.u5ylwcm.mongodb.net/', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

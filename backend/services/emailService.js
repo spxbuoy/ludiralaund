@@ -33,11 +33,11 @@ const sendVerificationEmail = async (email, code) => {
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: email,
-      subject: 'Email Verification - Laundry App',
+      subject: 'Email Verification - Laudira laundry',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
           <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
-            <h1 style="margin: 0; font-size: 28px;">Laundry App</h1>
+            <h1 style="margin: 0; font-size: 28px;">Laudira laundry</h1>
             <p style="margin: 10px 0 0 0; font-size: 16px;">Email Verification</p>
           </div>
           
@@ -45,7 +45,7 @@ const sendVerificationEmail = async (email, code) => {
             <h2 style="color: #333; margin-bottom: 20px;">Verify Your Email Address</h2>
             
             <p style="color: #666; line-height: 1.6; margin-bottom: 25px;">
-              Thank you for registering with Laundry App! To complete your registration, 
+              Thank you for registering with Laudira laundry! To complete your registration, 
               please enter the verification code below in the app.
             </p>
             
@@ -64,7 +64,7 @@ const sendVerificationEmail = async (email, code) => {
             <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
               <p style="color: #999; font-size: 12px; margin: 0;">
                 Best regards,<br>
-                The Laundry App Team
+                The Laudira laundry Team
               </p>
             </div>
           </div>
@@ -94,7 +94,7 @@ const sendPasswordResetEmail = async (email, resetToken) => {
     }
     
     // Determine the correct frontend URL
-    const frontendUrl = process.env.FRONTEND_URL || 'https://laundry-app-cyan.vercel.app';
+    const frontendUrl = process.env.FRONTEND_URL || 'https://laudirake.vercel.app';
     const resetLink = `${frontendUrl}/reset-password?token=${resetToken}`;
 
     console.log(`🔗 Password reset link: ${resetLink}`);
@@ -102,11 +102,11 @@ const sendPasswordResetEmail = async (email, resetToken) => {
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: email,
-      subject: 'Password Reset - Laundry App',
+      subject: 'Password Reset - Laudira laundry',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
           <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
-            <h1 style="margin: 0; font-size: 28px;">Laundry App</h1>
+            <h1 style="margin: 0; font-size: 28px;">Laudira laundry</h1>
             <p style="margin: 10px 0 0 0; font-size: 16px;">Password Reset</p>
           </div>
 
@@ -114,7 +114,7 @@ const sendPasswordResetEmail = async (email, resetToken) => {
             <h2 style="color: #333; margin-bottom: 20px;">Reset Your Password</h2>
 
             <p style="color: #666; line-height: 1.6; margin-bottom: 25px;">
-              You requested a password reset for your Laundry App account.
+              You requested a password reset for your Laudira laundry account.
               Click the button below to reset your password.
             </p>
 
@@ -138,7 +138,7 @@ const sendPasswordResetEmail = async (email, resetToken) => {
             <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
               <p style="color: #999; font-size: 12px; margin: 0;">
                 Best regards,<br>
-                The Laundry App Team
+                The Laudira laundry Team
               </p>
             </div>
           </div>
@@ -220,7 +220,7 @@ const sendOrderStatusEmail = async (email, customerName, orderNumber, oldStatus,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
           <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
-            <h1 style="margin: 0; font-size: 28px;">Laundry App</h1>
+            <h1 style="margin: 0; font-size: 28px;">Laudira laundry</h1>
             <p style="margin: 10px 0 0 0; font-size: 16px;">Order Status Update</p>
           </div>
           
@@ -255,7 +255,7 @@ const sendOrderStatusEmail = async (email, customerName, orderNumber, oldStatus,
             <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
               <p style="color: #999; font-size: 12px; margin: 0;">
                 Best regards,<br>
-                The Laundry App Team
+                The Laudira laundry Team
               </p>
             </div>
           </div>
@@ -286,7 +286,7 @@ const sendChatMessageEmail = async (email, senderName, messageContent, orderNumb
     }
 
     // Determine the correct frontend URL
-    const frontendUrl = process.env.FRONTEND_URL || 'https://laundry-app-cyan.vercel.app';
+    const frontendUrl = process.env.FRONTEND_URL || 'https://laudirake.vercel.app';
     const dashboardLink = `${frontendUrl}/dashboard`;
 
     const subject = orderNumber
@@ -300,7 +300,7 @@ const sendChatMessageEmail = async (email, senderName, messageContent, orderNumb
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
           <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
-            <h1 style="margin: 0; font-size: 28px;">Laundry App</h1>
+            <h1 style="margin: 0; font-size: 28px;">Laudira laundry</h1>
             <p style="margin: 10px 0 0 0; font-size: 16px;">New Chat Message</p>
           </div>
 
@@ -331,7 +331,7 @@ const sendChatMessageEmail = async (email, senderName, messageContent, orderNumb
             <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
               <p style="color: #999; font-size: 12px; margin: 0;">
                 Best regards,<br>
-                The Laundry App Team
+                The Laudira laundry Team
               </p>
             </div>
           </div>
