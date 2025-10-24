@@ -1,0 +1,425 @@
+Compiled with problems:
+×
+ERROR in src/pages/provider/Orders.tsx:215:15
+TS2552: Cannot find name 'fetchOrders'. Did you mean 'setOrders'?
+    213 |
+    214 |       if (response.data.success) {
+  > 215 |         await fetchOrders(); // Refresh the orders list
+        |               ^^^^^^^^^^^
+    216 |       } else {
+    217 |         setError('Failed to assign order to yourself');
+    218 |       }
+ERROR in src/pages/provider/Orders.tsx:237:15
+TS2552: Cannot find name 'fetchOrders'. Did you mean 'setOrders'?
+    235 |
+    236 |       if (response.data.success) {
+  > 237 |         await fetchOrders();
+        |               ^^^^^^^^^^^
+    238 |         handleMenuClose();
+    239 |       } else {
+    240 |         setError('Failed to update order status');
+ERROR in src/pages/provider/Orders.tsx:268:15
+TS2552: Cannot find name 'fetchOrders'. Did you mean 'setOrders'?
+    266 |
+    267 |       if (response.data.success) {
+  > 268 |         await fetchOrders();
+        |               ^^^^^^^^^^^
+    269 |         setNotesDialogOpen(false);
+    270 |       } else {
+    271 |         setError('Failed to save notes');
+ERROR in src/pages/provider/Orders.tsx:324:8
+TS2304: Cannot find name 'TableContainer'.
+    322 |       </Typography>
+    323 |
+  > 324 |       <TableContainer component={Paper}>
+        |        ^^^^^^^^^^^^^^
+    325 |         <Table>
+    326 |           <TableHead>
+    327 |             <TableRow>
+ERROR in src/pages/provider/Orders.tsx:325:10
+TS2304: Cannot find name 'Table'.
+    323 |
+    324 |       <TableContainer component={Paper}>
+  > 325 |         <Table>
+        |          ^^^^^
+    326 |           <TableHead>
+    327 |             <TableRow>
+    328 |               <TableCell>Order ID</TableCell>
+ERROR in src/pages/provider/Orders.tsx:326:12
+TS2304: Cannot find name 'TableHead'.
+    324 |       <TableContainer component={Paper}>
+    325 |         <Table>
+  > 326 |           <TableHead>
+        |            ^^^^^^^^^
+    327 |             <TableRow>
+    328 |               <TableCell>Order ID</TableCell>
+    329 |               <TableCell>Customer</TableCell>
+ERROR in src/pages/provider/Orders.tsx:327:14
+TS2304: Cannot find name 'TableRow'.
+    325 |         <Table>
+    326 |           <TableHead>
+  > 327 |             <TableRow>
+        |              ^^^^^^^^
+    328 |               <TableCell>Order ID</TableCell>
+    329 |               <TableCell>Customer</TableCell>
+    330 |               <TableCell>Items</TableCell>
+ERROR in src/pages/provider/Orders.tsx:328:16
+TS2304: Cannot find name 'TableCell'.
+    326 |           <TableHead>
+    327 |             <TableRow>
+  > 328 |               <TableCell>Order ID</TableCell>
+        |                ^^^^^^^^^
+    329 |               <TableCell>Customer</TableCell>
+    330 |               <TableCell>Items</TableCell>
+    331 |               <TableCell>Total</TableCell>
+ERROR in src/pages/provider/Orders.tsx:328:36
+TS2304: Cannot find name 'TableCell'.
+    326 |           <TableHead>
+    327 |             <TableRow>
+  > 328 |               <TableCell>Order ID</TableCell>
+        |                                    ^^^^^^^^^
+    329 |               <TableCell>Customer</TableCell>
+    330 |               <TableCell>Items</TableCell>
+    331 |               <TableCell>Total</TableCell>
+ERROR in src/pages/provider/Orders.tsx:329:16
+TS2304: Cannot find name 'TableCell'.
+    327 |             <TableRow>
+    328 |               <TableCell>Order ID</TableCell>
+  > 329 |               <TableCell>Customer</TableCell>
+        |                ^^^^^^^^^
+    330 |               <TableCell>Items</TableCell>
+    331 |               <TableCell>Total</TableCell>
+    332 |               <TableCell>Status</TableCell>
+ERROR in src/pages/provider/Orders.tsx:329:36
+TS2304: Cannot find name 'TableCell'.
+    327 |             <TableRow>
+    328 |               <TableCell>Order ID</TableCell>
+  > 329 |               <TableCell>Customer</TableCell>
+        |                                    ^^^^^^^^^
+    330 |               <TableCell>Items</TableCell>
+    331 |               <TableCell>Total</TableCell>
+    332 |               <TableCell>Status</TableCell>
+ERROR in src/pages/provider/Orders.tsx:330:16
+TS2304: Cannot find name 'TableCell'.
+    328 |               <TableCell>Order ID</TableCell>
+    329 |               <TableCell>Customer</TableCell>
+  > 330 |               <TableCell>Items</TableCell>
+        |                ^^^^^^^^^
+    331 |               <TableCell>Total</TableCell>
+    332 |               <TableCell>Status</TableCell>
+    333 |               <TableCell>Created</TableCell>
+ERROR in src/pages/provider/Orders.tsx:330:33
+TS2304: Cannot find name 'TableCell'.
+    328 |               <TableCell>Order ID</TableCell>
+    329 |               <TableCell>Customer</TableCell>
+  > 330 |               <TableCell>Items</TableCell>
+        |                                 ^^^^^^^^^
+    331 |               <TableCell>Total</TableCell>
+    332 |               <TableCell>Status</TableCell>
+    333 |               <TableCell>Created</TableCell>
+ERROR in src/pages/provider/Orders.tsx:331:16
+TS2304: Cannot find name 'TableCell'.
+    329 |               <TableCell>Customer</TableCell>
+    330 |               <TableCell>Items</TableCell>
+  > 331 |               <TableCell>Total</TableCell>
+        |                ^^^^^^^^^
+    332 |               <TableCell>Status</TableCell>
+    333 |               <TableCell>Created</TableCell>
+    334 |               <TableCell>Scheduled For</TableCell>
+ERROR in src/pages/provider/Orders.tsx:331:33
+TS2304: Cannot find name 'TableCell'.
+    329 |               <TableCell>Customer</TableCell>
+    330 |               <TableCell>Items</TableCell>
+  > 331 |               <TableCell>Total</TableCell>
+        |                                 ^^^^^^^^^
+    332 |               <TableCell>Status</TableCell>
+    333 |               <TableCell>Created</TableCell>
+    334 |               <TableCell>Scheduled For</TableCell>
+ERROR in src/pages/provider/Orders.tsx:332:16
+TS2304: Cannot find name 'TableCell'.
+    330 |               <TableCell>Items</TableCell>
+    331 |               <TableCell>Total</TableCell>
+  > 332 |               <TableCell>Status</TableCell>
+        |                ^^^^^^^^^
+    333 |               <TableCell>Created</TableCell>
+    334 |               <TableCell>Scheduled For</TableCell>
+    335 |               <TableCell>Actions</TableCell>
+ERROR in src/pages/provider/Orders.tsx:332:34
+TS2304: Cannot find name 'TableCell'.
+    330 |               <TableCell>Items</TableCell>
+    331 |               <TableCell>Total</TableCell>
+  > 332 |               <TableCell>Status</TableCell>
+        |                                  ^^^^^^^^^
+    333 |               <TableCell>Created</TableCell>
+    334 |               <TableCell>Scheduled For</TableCell>
+    335 |               <TableCell>Actions</TableCell>
+ERROR in src/pages/provider/Orders.tsx:333:16
+TS2304: Cannot find name 'TableCell'.
+    331 |               <TableCell>Total</TableCell>
+    332 |               <TableCell>Status</TableCell>
+  > 333 |               <TableCell>Created</TableCell>
+        |                ^^^^^^^^^
+    334 |               <TableCell>Scheduled For</TableCell>
+    335 |               <TableCell>Actions</TableCell>
+    336 |             </TableRow>
+ERROR in src/pages/provider/Orders.tsx:333:35
+TS2304: Cannot find name 'TableCell'.
+    331 |               <TableCell>Total</TableCell>
+    332 |               <TableCell>Status</TableCell>
+  > 333 |               <TableCell>Created</TableCell>
+        |                                   ^^^^^^^^^
+    334 |               <TableCell>Scheduled For</TableCell>
+    335 |               <TableCell>Actions</TableCell>
+    336 |             </TableRow>
+ERROR in src/pages/provider/Orders.tsx:334:16
+TS2304: Cannot find name 'TableCell'.
+    332 |               <TableCell>Status</TableCell>
+    333 |               <TableCell>Created</TableCell>
+  > 334 |               <TableCell>Scheduled For</TableCell>
+        |                ^^^^^^^^^
+    335 |               <TableCell>Actions</TableCell>
+    336 |             </TableRow>
+    337 |           </TableHead>
+ERROR in src/pages/provider/Orders.tsx:334:41
+TS2304: Cannot find name 'TableCell'.
+    332 |               <TableCell>Status</TableCell>
+    333 |               <TableCell>Created</TableCell>
+  > 334 |               <TableCell>Scheduled For</TableCell>
+        |                                         ^^^^^^^^^
+    335 |               <TableCell>Actions</TableCell>
+    336 |             </TableRow>
+    337 |           </TableHead>
+ERROR in src/pages/provider/Orders.tsx:335:16
+TS2304: Cannot find name 'TableCell'.
+    333 |               <TableCell>Created</TableCell>
+    334 |               <TableCell>Scheduled For</TableCell>
+  > 335 |               <TableCell>Actions</TableCell>
+        |                ^^^^^^^^^
+    336 |             </TableRow>
+    337 |           </TableHead>
+    338 |           <TableBody>
+ERROR in src/pages/provider/Orders.tsx:335:35
+TS2304: Cannot find name 'TableCell'.
+    333 |               <TableCell>Created</TableCell>
+    334 |               <TableCell>Scheduled For</TableCell>
+  > 335 |               <TableCell>Actions</TableCell>
+        |                                   ^^^^^^^^^
+    336 |             </TableRow>
+    337 |           </TableHead>
+    338 |           <TableBody>
+ERROR in src/pages/provider/Orders.tsx:336:15
+TS2304: Cannot find name 'TableRow'.
+    334 |               <TableCell>Scheduled For</TableCell>
+    335 |               <TableCell>Actions</TableCell>
+  > 336 |             </TableRow>
+        |               ^^^^^^^^
+    337 |           </TableHead>
+    338 |           <TableBody>
+    339 |             {orders.map((order) => (
+ERROR in src/pages/provider/Orders.tsx:337:13
+TS2304: Cannot find name 'TableHead'.
+    335 |               <TableCell>Actions</TableCell>
+    336 |             </TableRow>
+  > 337 |           </TableHead>
+        |             ^^^^^^^^^
+    338 |           <TableBody>
+    339 |             {orders.map((order) => (
+    340 |               <TableRow key={order._id}>
+ERROR in src/pages/provider/Orders.tsx:338:12
+TS2304: Cannot find name 'TableBody'.
+    336 |             </TableRow>
+    337 |           </TableHead>
+  > 338 |           <TableBody>
+        |            ^^^^^^^^^
+    339 |             {orders.map((order) => (
+    340 |               <TableRow key={order._id}>
+    341 |                 <TableCell>{order.orderNumber}</TableCell>
+ERROR in src/pages/provider/Orders.tsx:340:16
+TS2304: Cannot find name 'TableRow'.
+    338 |           <TableBody>
+    339 |             {orders.map((order) => (
+  > 340 |               <TableRow key={order._id}>
+        |                ^^^^^^^^
+    341 |                 <TableCell>{order.orderNumber}</TableCell>
+    342 |                 <TableCell>
+    343 |                   <Stack direction="column" spacing={0.5}>
+ERROR in src/pages/provider/Orders.tsx:341:18
+TS2304: Cannot find name 'TableCell'.
+    339 |             {orders.map((order) => (
+    340 |               <TableRow key={order._id}>
+  > 341 |                 <TableCell>{order.orderNumber}</TableCell>
+        |                  ^^^^^^^^^
+    342 |                 <TableCell>
+    343 |                   <Stack direction="column" spacing={0.5}>
+    344 |                     <Typography variant="body2">
+ERROR in src/pages/provider/Orders.tsx:341:49
+TS2304: Cannot find name 'TableCell'.
+    339 |             {orders.map((order) => (
+    340 |               <TableRow key={order._id}>
+  > 341 |                 <TableCell>{order.orderNumber}</TableCell>
+        |                                                 ^^^^^^^^^
+    342 |                 <TableCell>
+    343 |                   <Stack direction="column" spacing={0.5}>
+    344 |                     <Typography variant="body2">
+ERROR in src/pages/provider/Orders.tsx:342:18
+TS2304: Cannot find name 'TableCell'.
+    340 |               <TableRow key={order._id}>
+    341 |                 <TableCell>{order.orderNumber}</TableCell>
+  > 342 |                 <TableCell>
+        |                  ^^^^^^^^^
+    343 |                   <Stack direction="column" spacing={0.5}>
+    344 |                     <Typography variant="body2">
+    345 |                       {`${order.customer.firstName} ${order.customer.lastName}`}
+ERROR in src/pages/provider/Orders.tsx:356:19
+TS2304: Cannot find name 'TableCell'.
+    354 |                     )}
+    355 |                   </Stack>
+  > 356 |                 </TableCell>
+        |                   ^^^^^^^^^
+    357 |                 <TableCell>
+    358 |                   {order.items.map((item, index) => (
+    359 |                     <div key={index}>{`${item.serviceName} x${item.quantity}`}</div>
+ERROR in src/pages/provider/Orders.tsx:357:18
+TS2304: Cannot find name 'TableCell'.
+    355 |                   </Stack>
+    356 |                 </TableCell>
+  > 357 |                 <TableCell>
+        |                  ^^^^^^^^^
+    358 |                   {order.items.map((item, index) => (
+    359 |                     <div key={index}>{`${item.serviceName} x${item.quantity}`}</div>
+    360 |                   ))}
+ERROR in src/pages/provider/Orders.tsx:361:19
+TS2304: Cannot find name 'TableCell'.
+    359 |                     <div key={index}>{`${item.serviceName} x${item.quantity}`}</div>
+    360 |                   ))}
+  > 361 |                 </TableCell>
+        |                   ^^^^^^^^^
+    362 |                 <TableCell>{order.formattedTotal}</TableCell>
+    363 |                 <TableCell>
+    364 |                   <Chip
+ERROR in src/pages/provider/Orders.tsx:362:18
+TS2304: Cannot find name 'TableCell'.
+    360 |                   ))}
+    361 |                 </TableCell>
+  > 362 |                 <TableCell>{order.formattedTotal}</TableCell>
+        |                  ^^^^^^^^^
+    363 |                 <TableCell>
+    364 |                   <Chip
+    365 |                     label={statusLabels[order.status]}
+ERROR in src/pages/provider/Orders.tsx:362:52
+TS2304: Cannot find name 'TableCell'.
+    360 |                   ))}
+    361 |                 </TableCell>
+  > 362 |                 <TableCell>{order.formattedTotal}</TableCell>
+        |                                                    ^^^^^^^^^
+    363 |                 <TableCell>
+    364 |                   <Chip
+    365 |                     label={statusLabels[order.status]}
+ERROR in src/pages/provider/Orders.tsx:363:18
+TS2304: Cannot find name 'TableCell'.
+    361 |                 </TableCell>
+    362 |                 <TableCell>{order.formattedTotal}</TableCell>
+  > 363 |                 <TableCell>
+        |                  ^^^^^^^^^
+    364 |                   <Chip
+    365 |                     label={statusLabels[order.status]}
+    366 |                     color={statusColors[order.status]}
+ERROR in src/pages/provider/Orders.tsx:369:19
+TS2304: Cannot find name 'TableCell'.
+    367 |                     size="small"
+    368 |                   />
+  > 369 |                 </TableCell>
+        |                   ^^^^^^^^^
+    370 |                 <TableCell>{formatDate(order.createdAt)}</TableCell>
+    371 |                 <TableCell>{formatDate(order.deliveryDate)}</TableCell>
+    372 |                 <TableCell>
+ERROR in src/pages/provider/Orders.tsx:370:18
+TS2304: Cannot find name 'TableCell'.
+    368 |                   />
+    369 |                 </TableCell>
+  > 370 |                 <TableCell>{formatDate(order.createdAt)}</TableCell>
+        |                  ^^^^^^^^^
+    371 |                 <TableCell>{formatDate(order.deliveryDate)}</TableCell>
+    372 |                 <TableCell>
+    373 |                   <Stack direction="row" spacing={1}>
+ERROR in src/pages/provider/Orders.tsx:370:59
+TS2304: Cannot find name 'TableCell'.
+    368 |                   />
+    369 |                 </TableCell>
+  > 370 |                 <TableCell>{formatDate(order.createdAt)}</TableCell>
+        |                                                           ^^^^^^^^^
+    371 |                 <TableCell>{formatDate(order.deliveryDate)}</TableCell>
+    372 |                 <TableCell>
+    373 |                   <Stack direction="row" spacing={1}>
+ERROR in src/pages/provider/Orders.tsx:371:18
+TS2304: Cannot find name 'TableCell'.
+    369 |                 </TableCell>
+    370 |                 <TableCell>{formatDate(order.createdAt)}</TableCell>
+  > 371 |                 <TableCell>{formatDate(order.deliveryDate)}</TableCell>
+        |                  ^^^^^^^^^
+    372 |                 <TableCell>
+    373 |                   <Stack direction="row" spacing={1}>
+    374 |                     <IconButton
+ERROR in src/pages/provider/Orders.tsx:371:62
+TS2304: Cannot find name 'TableCell'.
+    369 |                 </TableCell>
+    370 |                 <TableCell>{formatDate(order.createdAt)}</TableCell>
+  > 371 |                 <TableCell>{formatDate(order.deliveryDate)}</TableCell>
+        |                                                              ^^^^^^^^^
+    372 |                 <TableCell>
+    373 |                   <Stack direction="row" spacing={1}>
+    374 |                     <IconButton
+ERROR in src/pages/provider/Orders.tsx:372:18
+TS2304: Cannot find name 'TableCell'.
+    370 |                 <TableCell>{formatDate(order.createdAt)}</TableCell>
+    371 |                 <TableCell>{formatDate(order.deliveryDate)}</TableCell>
+  > 372 |                 <TableCell>
+        |                  ^^^^^^^^^
+    373 |                   <Stack direction="row" spacing={1}>
+    374 |                     <IconButton
+    375 |                       size="small"
+ERROR in src/pages/provider/Orders.tsx:394:19
+TS2304: Cannot find name 'TableCell'.
+    392 |                     </Badge>
+    393 |                   </Stack>
+  > 394 |                 </TableCell>
+        |                   ^^^^^^^^^
+    395 |               </TableRow>
+    396 |             ))}
+    397 |           </TableBody>
+ERROR in src/pages/provider/Orders.tsx:395:17
+TS2304: Cannot find name 'TableRow'.
+    393 |                   </Stack>
+    394 |                 </TableCell>
+  > 395 |               </TableRow>
+        |                 ^^^^^^^^
+    396 |             ))}
+    397 |           </TableBody>
+    398 |         </Table>
+ERROR in src/pages/provider/Orders.tsx:397:13
+TS2304: Cannot find name 'TableBody'.
+    395 |               </TableRow>
+    396 |             ))}
+  > 397 |           </TableBody>
+        |             ^^^^^^^^^
+    398 |         </Table>
+    399 |       </TableContainer>
+    400 |
+ERROR in src/pages/provider/Orders.tsx:398:11
+TS2304: Cannot find name 'Table'.
+    396 |             ))}
+    397 |           </TableBody>
+  > 398 |         </Table>
+        |           ^^^^^
+    399 |       </TableContainer>
+    400 |
+    401 |       {/* Status Update Menu */}
+ERROR in src/pages/provider/Orders.tsx:399:9
+TS2304: Cannot find name 'TableContainer'.
+    397 |           </TableBody>
+    398 |         </Table>
+  > 399 |       </TableContainer>
+        |         ^^^^^^^^^^^^^^
+    400 |
+    401 |       {/* Status Update Menu */}
+    402 |       <Menu

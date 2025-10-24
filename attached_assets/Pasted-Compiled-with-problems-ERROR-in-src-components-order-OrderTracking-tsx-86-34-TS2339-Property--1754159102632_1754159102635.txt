@@ -1,0 +1,61 @@
+Compiled with problems:
+×
+ERROR in src/components/order/OrderTracking.tsx:86:34
+TS2339: Property 'get' does not exist on type '{ auth: { login: (credentials: LoginRequest) => Promise<ApiResponse<UserResponse>>; register: (userData: RegisterRequest) => Promise<...>; ... 5 more ...; logout: () => void; }; users: { ...; }; health: { ...; }; }'.
+    84 |     try {
+    85 |       setLoading(true);
+  > 86 |       const response = await api.get(`/tracking/${orderId}`);
+       |                                  ^^^
+    87 |       setTracking(response.data.data);
+    88 |       setError(null);
+    89 |     } catch (err: any) {
+ERROR in src/components/order/OrderTracking.tsx:143:19
+TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: { component: ElementType<any, keyof IntrinsicElements>; } & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<...> & Omit<...>): Element | null', gave the following error.
+    Property 'component' is missing in type '{ children: Element; item: true; }' but required in type '{ component: ElementType<any, keyof IntrinsicElements>; }'.
+  Overload 2 of 2, '(props: DefaultComponentProps<GridTypeMap<{}, "div">>): Element | null', gave the following error.
+    Type '{ children: Element; item: true; }' is not assignable to type 'IntrinsicAttributes & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<Theme> & Omit<...>'.
+      Property 'item' does not exist on type 'IntrinsicAttributes & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<Theme> & Omit<...>'.
+    141 |               <CardContent>
+    142 |                 <Grid container spacing={2} alignItems="center">
+  > 143 |                   <Grid item>
+        |                   ^^^^^^^^^^^
+    144 |                     <Chip
+    145 |                       label={tracking.currentLocation.replace('_', ' ').toUpperCase()}
+    146 |                       color="primary"
+ERROR in src/components/order/OrderTracking.tsx:147:23
+TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: { component: ElementType<any, keyof IntrinsicElements>; } & ChipOwnProps & CommonProps & Omit<any, "color" | ... 15 more ... | "skipFocusWhenDisabled">): Element | null', gave the following error.
+    Type '"large"' is not assignable to type '"medium" | "small" | undefined'.
+  Overload 2 of 2, '(props: DefaultComponentProps<ChipTypeMap<{}, "div">>): Element | null', gave the following error.
+    Type '"large"' is not assignable to type '"medium" | "small" | undefined'.
+    145 |                       label={tracking.currentLocation.replace('_', ' ').toUpperCase()}
+    146 |                       color="primary"
+  > 147 |                       size="large"
+        |                       ^^^^
+    148 |                     />
+    149 |                   </Grid>
+    150 |                   <Grid item xs>
+ERROR in src/components/order/OrderTracking.tsx:150:19
+TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: { component: ElementType<any, keyof IntrinsicElements>; } & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<...> & Omit<...>): Element | null', gave the following error.
+    Property 'component' is missing in type '{ children: any[]; item: true; xs: true; }' but required in type '{ component: ElementType<any, keyof IntrinsicElements>; }'.
+  Overload 2 of 2, '(props: DefaultComponentProps<GridTypeMap<{}, "div">>): Element | null', gave the following error.
+    Type '{ children: any[]; item: true; xs: true; }' is not assignable to type 'IntrinsicAttributes & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<Theme> & Omit<...>'.
+      Property 'item' does not exist on type 'IntrinsicAttributes & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<Theme> & Omit<...>'.
+    148 |                     />
+    149 |                   </Grid>
+  > 150 |                   <Grid item xs>
+        |                   ^^^^^^^^^^^^^^
+    151 |                     <Typography variant="h6">
+    152 |                       Order #{tracking.order.orderNumber}
+    153 |                     </Typography>
+ERROR in src/components/payment/PaymentForm.tsx:165:25
+TS7006: Parameter 'prev' implicitly has an 'any' type.
+    163 |
+    164 |         if (result.success) {
+  > 165 |           setMomoStatus(prev => ({ ...prev, data: result.data }));
+        |                         ^^^^
+    166 |           
+    167 |           if (result.data.status === 'completed') {
+    168 |             clearInterval(pollInterval);

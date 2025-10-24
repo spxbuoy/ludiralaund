@@ -1,0 +1,55 @@
+modules = ["nodejs-20", "web"]
+run = "node index.js"
+
+[nix]
+channel = "stable-25_05"
+
+[deployment]
+run = ["sh", "-c", "node index.js"]
+
+[workflows]
+runButton = "Start Full Stack"
+
+[[workflows.workflow]]
+name = "Start Backend Server"
+author = 41511055
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd backend && npm install && npm start"
+
+[[workflows.workflow]]
+name = "Start Frontend"
+author = 41511055
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd laundry-app && npm install && npm start"
+
+[[workflows.workflow]]
+name = "Start Full Stack"
+author = 41511055
+mode = "parallel"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd backend && npm start"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd laundry-app && npm start"
+
+[[ports]]
+localPort = 3000
+externalPort = 3001
+
+[[ports]]
+localPort = 5000
+externalPort = 80
+
+[[ports]]
+localPort = 27017
+externalPort = 3000
+exposeLocalhost = true

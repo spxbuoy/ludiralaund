@@ -1,0 +1,63 @@
+Create order error: Error: Order validation failed: totalAmount: Cast to Number failed for value "NaN" (type number) at path "totalAmount", subtotal: Path `subtotal` is required.      
+    at ValidationError.inspect (C:\Users\HP\Desktop\New folder (2)\laundry-app-2\backend\node_modules\mongoose\lib\error\validation.js:52:26)
+    at formatValue (node:internal/util/inspect:850:19)
+    at inspect (node:internal/util/inspect:387:10)
+    at formatWithOptionsInternal (node:internal/util/inspect:2366:40)
+    at formatWithOptions (node:internal/util/inspect:2228:10)
+    at console.value (node:internal/console/constructor:345:14)
+    at console.error (node:internal/console/constructor:412:61)
+    at C:\Users\HP\Desktop\New folder (2)\laundry-app-2\backend\routes\orders.js:169:13     
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5) {        
+  errors: {
+    totalAmount: CastError: Cast to Number failed for value "NaN" (type number) at path "totalAmount"
+        at SchemaNumber.cast (C:\Users\HP\Desktop\New folder (2)\laundry-app-2\backend\node_modules\mongoose\lib\schema\number.js:381:11) 
+        at SchemaType.applySetters (C:\Users\HP\Desktop\New folder (2)\laundry-app-2\backend\node_modules\mongoose\lib\schemaType.js:1255:12)
+        at model.$set (C:\Users\HP\Desktop\New folder (2)\laundry-app-2\backend\node_modules\mongoose\lib\document.js:1438:22)
+        at model.$set (C:\Users\HP\Desktop\New folder (2)\laundry-app-2\backend\node_modules\mongoose\lib\document.js:1132:16)
+        at model.Document (C:\Users\HP\Desktop\New folder (2)\laundry-app-2\backend\node_modules\mongoose\lib\document.js:178:12)
+        at model.Model (C:\Users\HP\Desktop\New folder (2)\laundry-app-2\backend\node_modules\mongoose\lib\model.js:127:12)
+        at new model (C:\Users\HP\Desktop\New folder (2)\laundry-app-2\backend\node_modules\mongoose\lib\model.js:4836:15)
+        at C:\Users\HP\Desktop\New folder (2)\laundry-app-2\backend\node_modules\mongoose\lib\model.js:2786:20
+        at Array.map (<anonymous>)
+        at Function.create (C:\Users\HP\Desktop\New folder (2)\laundry-app-2\backend\node_modules\mongoose\lib\model.js:2774:34) {        
+      stringValue: '"NaN"',
+      messageFormat: undefined,
+      kind: 'Number',
+      value: NaN,
+      path: 'totalAmount',
+      reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:    
+
+        assert.ok(!isNaN(val))
+
+          at castNumber (C:\Users\HP\Desktop\New folder (2)\laundry-app-2\backend\node_modules\mongoose\lib\cast\number.js:27:10)
+          at SchemaNumber.cast (C:\Users\HP\Desktop\New folder (2)\laundry-app-2\backend\node_modules\mongoose\lib\schema\number.js:379:12)
+          at SchemaType.applySetters (C:\Users\HP\Desktop\New folder (2)\laundry-app-2\backend\node_modules\mongoose\lib\schemaType.js:1255:12)
+          at model.$set (C:\Users\HP\Desktop\New folder (2)\laundry-app-2\backend\node_modules\mongoose\lib\document.js:1438:22)
+          at model.$set (C:\Users\HP\Desktop\New folder (2)\laundry-app-2\backend\node_modules\mongoose\lib\document.js:1132:16)
+          at model.Document (C:\Users\HP\Desktop\New folder (2)\laundry-app-2\backend\node_modules\mongoose\lib\document.js:178:12)       
+          at model.Model (C:\Users\HP\Desktop\New folder (2)\laundry-app-2\backend\node_modules\mongoose\lib\model.js:127:12)
+          at new model (C:\Users\HP\Desktop\New folder (2)\laundry-app-2\backend\node_modules\mongoose\lib\model.js:4836:15)
+          at C:\Users\HP\Desktop\New folder (2)\laundry-app-2\backend\node_modules\mongoose\lib\model.js:2786:20
+          at Array.map (<anonymous>) {        
+        generatedMessage: true,
+        code: 'ERR_ASSERTION',
+        actual: false,
+        expected: true,
+        operator: '=='
+      },
+      valueType: 'number'
+    },
+    subtotal: ValidatorError: Path `subtotal` is required.
+        at validate (C:\Users\HP\Desktop\New folder (2)\laundry-app-2\backend\node_modules\mongoose\lib\schemaType.js:1404:13)
+        at SchemaType.doValidate (C:\Users\HP\Desktop\New folder (2)\laundry-app-2\backend\node_modules\mongoose\lib\schemaType.js:1388:7)
+        at C:\Users\HP\Desktop\New folder (2)\laundry-app-2\backend\node_modules\mongoose\lib\document.js:3105:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:85:11) {    
+      properties: [Object],
+      kind: 'required',
+      path: 'subtotal',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose#validatorError)]: true 
+    }
+  },
+  _message: 'Order validation failed'

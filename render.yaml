@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: laundry-backend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    rootDir: backend
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: DATABASE_URL
+        value: <YOUR_DATABASE_URL>
+      - key: FRONTEND_URL
+        value: <YOUR_FRONTEND_RENDER_URL>
+
+  - type: web
+    name: laundry-frontend
+    env: static
+    plan: free
+    buildCommand: npm install && npm run build
+    staticPublishPath: build
+    rootDir: laundry-app
+    envVars:
+      - key: REACT_APP_API_URL
+        value: <YOUR_BACKEND_RENDER_URL> 
