@@ -5,6 +5,33 @@ const { sendPasswordResetEmail } = require('../services/emailService');
 
 const router = express.Router();
 
+// =======================
+// Helper functions
+// =======================
+
+// @desc    Check email availability (no verification)
+// @route   POST /api/auth/check-email
+// @access  Public
+const checkEmailAndSendVerification = async (req, res) => {
+  try {
+    const { email } = req.body;
+    if (!email || !email.trim()) {
+      return res.status(400).json({ error: 'Email is required' });
+    }
+
+    const normalized = email.trim().toLowerCase();
+    const userExists = await User.findOne({ email: normalized });
+
+    res.json({
+      available: !userExists,
+      message: !userExists ? 'Email is available' : 'Email already registered'
+    });
+  } catch (error) {
+    console.error('Check email error:', error);
+    res.status(500).json({ error: 'Server error' });
+  }
+};
+
 // @desc    Register user (no email verification)
 // @route   POST /api/auth/register
 // @access  Public
@@ -12,13 +39,13 @@ const register = async (req, res) => {
   try {
     const { firstName, lastName, email, password, phoneNumber, role } = req.body;
 
-    // Check if user exists in database
+    // Check if user exists
     const userExists = await User.findOne({ email });
     if (userExists) {
       return res.status(400).json({ error: 'User already exists' });
     }
 
-    // Create user in database, emailVerified = true
+    // Create user
     const user = await User.create({
       firstName,
       lastName,
@@ -47,13 +74,12 @@ const register = async (req, res) => {
   }
 };
 
-// @desc    Authenticate user & get token
+// @desc    Login user
 // @route   POST /api/auth/login
 // @access  Public
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
-
     const user = await User.findOne({ email }).select('+password');
 
     if (user && (await user.comparePassword(password))) {
@@ -103,33 +129,30 @@ const getMe = async (req, res) => {
 const updateProfile = async (req, res) => {
   try {
     const { firstName, lastName, phoneNumber, addresses, preferences } = req.body;
-
     const user = await User.findById(req.user._id);
 
-    if (user) {
-      user.firstName = firstName || user.firstName;
-      user.lastName = lastName || user.lastName;
-      user.phoneNumber = phoneNumber || user.phoneNumber;
-      user.addresses = addresses || user.addresses;
-      user.preferences = preferences || user.preferences;
+    if (!user) return res.status(404).json({ error: 'User not found' });
 
-      const updatedUser = await user.save();
+    user.firstName = firstName || user.firstName;
+    user.lastName = lastName || user.lastName;
+    user.phoneNumber = phoneNumber || user.phoneNumber;
+    user.addresses = addresses || user.addresses;
+    user.preferences = preferences || user.preferences;
 
-      res.json({
-        _id: updatedUser._id,
-        firstName: updatedUser.firstName,
-        lastName: updatedUser.lastName,
-        email: updatedUser.email,
-        phoneNumber: updatedUser.phoneNumber,
-        role: updatedUser.role,
-        status: updatedUser.status,
-        addresses: updatedUser.addresses,
-        preferences: updatedUser.preferences,
-        token: generateToken(updatedUser._id)
-      });
-    } else {
-      res.status(404).json({ error: 'User not found' });
-    }
+    const updatedUser = await user.save();
+
+    res.json({
+      _id: updatedUser._id,
+      firstName: updatedUser.firstName,
+      lastName: updatedUser.lastName,
+      email: updatedUser.email,
+      phoneNumber: updatedUser.phoneNumber,
+      role: updatedUser.role,
+      status: updatedUser.status,
+      addresses: updatedUser.addresses,
+      preferences: updatedUser.preferences,
+      token: generateToken(updatedUser._id)
+    });
   } catch (error) {
     console.error('Update profile error:', error);
     res.status(500).json({ error: 'Server error' });
@@ -142,15 +165,11 @@ const updateProfile = async (req, res) => {
 const changePassword = async (req, res) => {
   try {
     const { currentPassword, newPassword } = req.body;
-
     const user = await User.findById(req.user._id).select('+password');
 
-    if (!user) {
-      return res.status(404).json({ error: 'User not found' });
-    }
+    if (!user) return res.status(404).json({ error: 'User not found' });
 
-    const isMatch = await user.comparePassword(currentPassword);
-    if (!isMatch) {
+    if (!(await user.comparePassword(currentPassword))) {
       return res.status(400).json({ error: 'Current password is incorrect' });
     }
 
@@ -170,17 +189,12 @@ const changePassword = async (req, res) => {
 const forgotPassword = async (req, res) => {
   try {
     const { email } = req.body;
-
     const user = await User.findOne({ email });
-
-    if (!user) {
-      return res.status(404).json({ error: 'User not found' });
-    }
+    if (!user) return res.status(404).json({ error: 'User not found' });
 
     const resetToken = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
     user.resetPasswordToken = resetToken;
     user.resetPasswordExpire = Date.now() + 10 * 60 * 1000;
-
     await user.save();
 
     await sendPasswordResetEmail(email, resetToken);
@@ -198,22 +212,18 @@ const forgotPassword = async (req, res) => {
 const resetPassword = async (req, res) => {
   try {
     const { resetToken, newPassword } = req.body;
-
     const user = await User.findOne({
       resetPasswordToken: resetToken,
       resetPasswordExpire: { $gt: Date.now() }
     });
 
-    if (!user) {
-      return res.status(400).json({ error: 'Invalid or expired reset token' });
-    }
+    if (!user) return res.status(400).json({ error: 'Invalid or expired reset token' });
 
     user.password = newPassword;
     user.resetPasswordToken = undefined;
     user.resetPasswordExpire = undefined;
 
     await user.save();
-
     res.json({ message: 'Password reset successful' });
   } catch (error) {
     console.error('Reset password error:', error);
@@ -221,34 +231,16 @@ const resetPassword = async (req, res) => {
   }
 };
 
-// @desc    Check if email is available
-// @route   POST /api/auth/email-available
-// @access  Public
-const checkEmailAvailability = async (req, res) => {
-  try {
-    const { email } = req.body;
-    if (!email || !email.trim()) {
-      return res.status(400).json({ error: 'Email is required' });
-    }
-
-    const normalized = email.trim().toLowerCase();
-    const userExists = await User.findOne({ email: normalized });
-    return res.json({ available: !userExists });
-  } catch (error) {
-    console.error('Check email availability error:', error);
-    return res.status(500).json({ error: 'Server error' });
-  }
-};
-
+// =======================
 // Routes
+// =======================
 router.post('/register', register);
-// Verification routes removed
 router.post('/login', login);
 router.get('/me', protect, getMe);
 router.put('/profile', protect, updateProfile);
 router.put('/password', protect, changePassword);
 router.post('/forgot-password', forgotPassword);
 router.post('/reset-password', resetPassword);
-router.post('/email-available', checkEmailAvailability);
+router.post('/check-email', checkEmailAndSendVerification);
 
 module.exports = router;
