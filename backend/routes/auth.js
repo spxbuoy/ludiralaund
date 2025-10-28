@@ -212,6 +212,6 @@ router.put('/profile', protect, router.stack.find(r => r.route && r.route.path =
 router.put('/password', protect, router.stack.find(r => r.route && r.route.path === '/password').route.stack[0].handle);
 router.post('/forgot-password', router.stack.find(r => r.route && r.route.path === '/forgot-password').route.stack[0].handle);
 router.post('/reset-password', router.stack.find(r => r.route && r.route.path === '/reset-password').route.stack[0].handle);
-router.post('/email-available', router.stack.find(r => r.route && r.route.path === '/email-available').route.stack[0].handle);
+router.post('/check-email', router.stack.find(r => r.route && r.route.path === '/check-email').route.stack[0].handle);
 
 module.exports = router;
