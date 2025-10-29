@@ -38,6 +38,7 @@ app.use(cors({
   origin: [
     'http://localhost:3000',
     'http://127.0.0.1:3000',
+    'http://157.173.99.190:5000',   // add this line
     'https://laudirake.vercel.app',
     'https://laudirake-8y27rwljd-spxbuoys-projects.vercel.app'
   ],
